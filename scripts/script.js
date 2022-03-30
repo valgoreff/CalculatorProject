@@ -1,15 +1,14 @@
+//tema light dan dark mode
 let lightTheme = "styles/light.css";
 let darkTheme = "styles/dark.css";
 
-//adding event handler on the document to handle keyboard inputs
 document.addEventListener("keydown", keyboardInputHandler);
 
-//function to handle keyboard inputs
+//fungsi input keyboard
 function keyboardInputHandler(e) {
-  //grabbing the liveScreen
   let res = document.getElementById("result");
 
-  //numbers
+  //input nomor kalkulator
   if (e.key === "0") {
     res.value += "0";
   } else if (e.key === "1") {
@@ -34,7 +33,7 @@ function keyboardInputHandler(e) {
     res.value += "9";
   }
 
-  //operators
+  //operadi hitung
   if (e.key === "+") {
     res.value += "+";
   } else if (e.key === "-") {
@@ -45,30 +44,30 @@ function keyboardInputHandler(e) {
     res.value += "/";
   }
 
-  //decimal key
+  //desimal
   if (e.key === ".") {
     res.value += ".";
   }
 
-  //press enter to see result
+  //enter untuk hasil
   if (e.key === "Enter") {
     res.value = eval(result.value || null);
   }
 
-  //backspace for removing the last input
+  //basckspace untuk menghapus
   if (e.key === "Backspace") {
     let resultInput = res.value;
 
-    //remove the last element in the string
+    //menghapus elemen terakhir
     res.value = resultInput.substring(0, res.value.length - 1);
   }
 }
 
-// Clears the screen on click of C button.
+// clear layar saat memencet C
 function clearScreen() {
   document.getElementById("result").value = "";
 }
-// Displays entered value on screen.
+// Menampilkan nilai
 function liveScreen(value) {
   let res = document.getElementById("result");
   if (!res.value) {
@@ -76,7 +75,7 @@ function liveScreen(value) {
   }
   res.value += value;
 }
-// Swaps the stylesheet in order to  achieve dark mode.
+// Mengganti dark dan light mode.
 function changeTheme() {
   let darkMode = document.getElementById("dark-mode");
   let theme = document.getElementById("theme");
